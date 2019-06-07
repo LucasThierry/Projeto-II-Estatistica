@@ -146,3 +146,44 @@ audiencia = got[,5]
 # 
 # media_episodios_Brienne(got)
 
+
+#Questão 8
+
+Personagens_que_aparece_uma_vez_na_temporada_4=function(got){
+  #vetores com os nomes dos personagens e a quantidade de vezes que eles aparecem
+  nomesPerson=c() #tentei fazerf por data frame mas tava dando um erro que n entendia
+  vezesPerson=c()
+  
+  for(i in 1:length(got[,1])){#for que roda a quantidade de linhas ta tabela GOT
+    if(got[i,1]==4){#seleciona os da quarte tempotada
+      personagensEP=unlist(strsplit(as.character(got[i,4]),","))#vetor que separa o nome dos atores do episodio
+      for(j in 1:length(personagensEP)){
+        exist=FALSE #boleano que diz se um personagem ja foi listado
+        if(length(nomesPerson)>0){# condicional pra garantir que ele n entre no loop vazio 
+          for(k in 1:length(nomesPerson)){
+            if(personagensEP[j]==nomesPerson[k]) {#compara os nomes, se forem iguais ele ja existe e almenta a quantidade de vezes que ele aparece na temporada 
+              exist=TRUE
+              vezesPerson[k]=vezesPerson[k]+1
+            }
+          }
+        }
+      
+        if(!exist){# se é a primeira vez que o personagem aparece na lista, adicionamos ele e colocamos a quantidade de aparição em 1 
+          nomesPerson=c(nomesPerson,personagensEP[j])
+          vezesPerson=c(vezesPerson,1)
+        }
+      }
+    }
+  }
+  result=c()
+  for(i in 1:length(nomesPerson)){
+    if(vezesPerson[i]==1){ # cria uma lista com os personagens que apareceram apenas uma vez
+      result=c(result,nomesPerson[i])
+    }
+  }
+  print(result)
+}
+
+Personagens_que_aparece_uma_vez_na_temporada_4(got)
+
+
