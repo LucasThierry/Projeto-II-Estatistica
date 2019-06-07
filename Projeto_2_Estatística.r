@@ -208,7 +208,10 @@ frequencia_personagem=function(got,nome){
     }
   }
   tabela=data.frame(temporada=c(1,2,3,4,5,6,7,8),Ocorrencia)
+  #print(tabela)
   df.freq= as.vector(rep(tabela[,1], tabela[,2]))
-  hist(df.freq,ylim=c(0,8),xlab="Temporada",main=nome,col="darkmagenta")
+  print(df.freq)
+  hist(df.freq,ylim=c(0,8),xlab="Temporada",ylab="Ocorrencia",breaks=pretty(0:8,n=8),main=nome,col="darkmagenta")
 }
 frequencia_personagem(got,"Bran Stark(Isaac Hempstead)")
+frequencia_personagem(got,"Jon Snow(Kit Harington)")
