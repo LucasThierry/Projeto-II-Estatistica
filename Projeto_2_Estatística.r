@@ -8,19 +8,21 @@ notas = got[,3]
 personagens = got[,4]
 audiencia = got[,5]
 
-moda <- function(v) {
-  uniqv <- unique(v)
-  uniqv[which.max(tabulate(match(v, uniqv)))]
-}
+
 
 #Questão 2
+  moda <- function(v) {
+    uniqv <- unique(v)
+    uniqv[which.max(tabulate(match(v, uniqv)))]
+  }
+
  media_Notas = mean(notas)
  print(media_Notas)
  desvio_Notas = sd(notas)
  print(desvio_Notas)
  moda_Notas = moda(notas)
  print(moda_Notas)
-#Está faltando calcular a moda.
+
 
 
 #Questão 3
