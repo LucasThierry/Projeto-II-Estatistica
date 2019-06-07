@@ -197,7 +197,6 @@ Personagens_que_aparece_uma_vez_na_temporada_4=function(got){
 Personagens_que_aparece_uma_vez_na_temporada_4(got)
 
 #questão 9
-
 frequencia_personagem=function(got,nome){
   Ocorrencia=c(0,0,0,0,0,0,0,0)#setado com 8 zeros 1 p/ cada temporada
   for(i in 1:length(got[,1])){
@@ -209,6 +208,7 @@ frequencia_personagem=function(got,nome){
     }
   }
   tabela=data.frame(temporada=c(1,2,3,4,5,6,7,8),Ocorrencia)
-  hist(tabela[,2],)
+  df.freq= as.vector(rep(tabela[,1], tabela[,2]))
+  hist(df.freq,ylim=c(0,8),xlab="Temporada",main=nome,col="darkmagenta")
 }
 frequencia_personagem(got,"Bran Stark(Isaac Hempstead)")
